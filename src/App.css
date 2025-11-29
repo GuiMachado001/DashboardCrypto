@@ -4,11 +4,20 @@
   font-family: 'Inter', sans-serif;
 }
 
-body { margin: 0; }
+* {
+  box-sizing: border-box;
+}
 
-.dashboard-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+body {
+  margin: 0;
+}
 
-/* Navbar e Pesquisa */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -18,7 +27,11 @@ body { margin: 0; }
   border-bottom: 1px solid #2b3139;
 }
 
-.logo { font-size: 1.8rem; font-weight: bold; color: #fcd535; }
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fcd535;
+}
 
 .search-box input {
   background: #181a20;
@@ -29,9 +42,11 @@ body { margin: 0; }
   width: 250px;
   outline: none;
 }
-.search-box input:focus { border-color: #fcd535; }
 
-/* Header e Paginação */
+.search-box input:focus {
+  border-color: #fcd535;
+}
+
 .market-header {
   display: flex;
   justify-content: space-between;
@@ -48,55 +63,117 @@ body { margin: 0; }
   cursor: pointer;
   margin-left: 10px;
 }
-.pagination button:hover:not(:disabled) { background: #2b3139; }
-.pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* Tabela */
-.table-container { background: #181a20; border-radius: 12px; overflow: hidden; }
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: 15px; text-align: left; border-bottom: 1px solid #2b3139; }
-th { color: #848e9c; font-size: 0.9rem; }
-.clickable-row { cursor: pointer; transition: background 0.2s; }
-.clickable-row:hover { background: #2b3139; }
+.pagination button:hover:not(:disabled) {
+  background: #2b3139;
+}
 
-.coin-cell { display: flex; align-items: center; gap: 10px; }
-.coin-cell img { width: 30px; border-radius: 50%; }
-.green-text { color: #0ecb81; }
-.red-text { color: #f6465d; }
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
-/* --- MODAL (Janela Flutuante) --- */
+.table-container {
+  background: #181a20;
+  border-radius: 12px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #2b3139;
+}
+
+th {
+  color: #848e9c;
+  font-size: 0.9rem;
+}
+
+.clickable-row {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clickable-row:hover {
+  background: #2b3139;
+}
+
+.coin-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coin-cell img {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.green-text {
+  color: #0ecb81;
+}
+
+.red-text {
+  color: #f6465d;
+}
+
 .modal-overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(5px);
+  padding: 20px;
 }
 
 .modal-content {
   background: #1e2329;
   padding: 30px;
   border-radius: 15px;
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   position: relative;
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   border: 1px solid #2b3139;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .close-btn {
   position: absolute;
-  top: 15px; right: 20px;
-  background: none; border: none;
-  color: #848e9c; font-size: 1.5rem;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #848e9c;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
-.modal-header { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
-.modal-header img { width: 50px; }
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.modal-header img {
+  width: 50px;
+}
 
 .modal-stats {
   display: grid;
@@ -111,5 +188,83 @@ th { color: #848e9c; font-size: 0.9rem; }
   border-radius: 10px;
   border: 1px solid #2b3139;
 }
-.stat-box span { color: #848e9c; font-size: 0.9rem; }
-.stat-box h3 { margin: 5px 0 0 0; }
+
+.stat-box span {
+  color: #848e9c;
+  font-size: 0.9rem;
+}
+
+.stat-box h3 {
+  margin: 5px 0 0 0;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .market-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .pagination button {
+    flex: 1;
+    margin: 0 5px;
+    margin-left: 0;
+  }
+  
+  .pagination button:last-child {
+    margin-left: 10px;
+  }
+
+  th:nth-child(5), td:nth-child(5),
+  th:nth-child(6), td:nth-child(6) {
+    display: none;
+  }
+  
+  .modal-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  th, td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .coin-cell img {
+    width: 24px;
+  }
+
+  th:nth-child(1), td:nth-child(1) {
+    display: none;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.2rem;
+  }
+}
