@@ -8,7 +8,7 @@
 
 ## 📸 Preview
 
-![Screenshot do Projeto](./public/screenshot.png)
+![Screenshot do Projeto](./crypto-dash/public/screenshot.png)
 
 ## 💡 Sobre o Projeto
 
