@@ -9,7 +9,6 @@
 ## 📸 Preview
 
 ![Screenshot do Projeto](./public/screenshot.png)
-*(Dica: Tire um print da tela do seu projeto, salve como screenshot.png na pasta public e a imagem aparecerá aqui)*
 
 ## 💡 Sobre o Projeto
 
